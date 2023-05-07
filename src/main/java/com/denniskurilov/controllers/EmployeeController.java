@@ -1,5 +1,6 @@
 package com.denniskurilov.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.denniskurilov.models.Employee;
 import com.denniskurilov.models.EmployeeService;
@@ -32,6 +34,20 @@ public class EmployeeController {
 		List<Employee> listEmployee = employeeService.getAll();
 		model.addAttribute("employees", listEmployee);
 		return "index";
+	}
+
+	@GetMapping("/search")
+	public String search(Model model) {
+		List<Employee> listEmployee = new ArrayList<> ();
+		model.addAttribute("employees", listEmployee);
+		return "search";
+	}
+
+	@PostMapping("/search")
+	public String search(@RequestParam String keyword, Model model) {
+		List<Employee> listEmployee = employeeService.search(keyword);
+		model.addAttribute("employees", listEmployee);
+		return "search";
 	}
 
 	@GetMapping("/{id}")

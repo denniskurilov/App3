@@ -28,7 +28,8 @@ public class EmployeeService {
         repo.deleteById(id);
     }
      
-    
-    
+    public List<Employee> search(String keyword) {
+        return repo.search(keyword);
+    }
     
 }
