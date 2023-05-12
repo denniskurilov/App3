@@ -36,15 +36,6 @@ public class Employee {
 	@Email(message = "should be valid")
 	private String email;
 	
-	public Employee(long id, String firstName, String lastName, long age, String email) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.age = age;
-		this.email = email;
-	}
-	
 	public Employee() {
 		super();
 		this.id = 0;

@@ -5,4 +5,5 @@
 - Oracle data base
 - Spring
 - Thymeleaf
+- Spring Data JPA
 - Hibernate

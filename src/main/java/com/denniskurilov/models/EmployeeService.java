@@ -10,26 +10,28 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class EmployeeService {
-    @Autowired EmployeeRepository repo;
+    
+	@Autowired 
+    EmployeeRepository repository;
     
     public void save(Employee employee) {
-        repo.save(employee);
+    	repository.save(employee);
     }
      
     public List<Employee> getAll() {
-        return (List<Employee>) repo.findAll(Sort.by(Sort.Direction.ASC, "id"));
+        return (List<Employee>) repository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
      
     public Employee get(long id) {
-        return repo.findById(id).get();
+        return repository.findById(id).get();
     }
      
     public void delete(long id) {
-        repo.deleteById(id);
+    	repository.deleteById(id);
     }
      
     public List<Employee> search(String keyword) {
-        return repo.search(keyword);
+        return repository.search(keyword);
     }
     
 }
